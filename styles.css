@@ -27,16 +27,21 @@ margin-top: -1em;
 }
 
 body {
-  background-color: #F2F4F4;
+  background-color: #625f63;
   font-family: Lato;
   padding: 20px;
-  margin: 0px;
+  margin: 20px;
+  align-items: center;
 }
 
 h1 {
   text-align: center;
   color: black;
   font-family: DynaPuff;
+  font-size: xx-large;
+  background-color: #ff5400;
+  padding-top: 50px;
+  padding-bottom: 50px;
 
 }
 .deal {
@@ -101,7 +106,6 @@ button {
 .contacts {
   background-color: black;
   color: white;
-  /* font-weight: 600; */
 
 }
 
@@ -121,10 +125,10 @@ button {
       display: flex;
   }
 }
-/* Style buttons */
+
 .btn {
   background-color: #f78630;
-  /* Blue background */
+  
   border: none;
   /* Remove borders */
   color: white;
@@ -134,9 +138,7 @@ button {
   font-size: 16px;
   /* Set a font size */
   cursor: pointer;
-  /* Mouse pointer on hover */
-  /* justify-content: flex-end; */
-  /* display: flex; */
+ 
 } 
 
 /* Darker background on mouse-over */
@@ -166,7 +168,7 @@ margin-top: -1em;
   height: 70%;
   background-color: #fff;
   border-radius: 5px;
-  box-shadow: 0px 25px 40px #1687d933;
+  box-shadow: 0px 25px 40px #00000033;
   overflow-x: auto; /*To make sure that table is responsive */
 }
 .c2 {
@@ -261,7 +263,7 @@ color: white;
 margin-top: 1em;
 }
 .success {
-  color: #525050;
+  color: #000000;
 }
 
 td input {
@@ -276,7 +278,9 @@ width: 80px;
 .size {
   font-size: 16px;
   font-style: normal;
-  color: #808B96;
+  color: black;
+  border-radius: 50%;
+  
 }
 .nice {
 box-sizing: border-box;
@@ -314,4 +318,21 @@ nice:hover {
   border: 3px solid whitesmoke;
   background-color: #ff5400;
 
+}
+h2 {
+  font-size: x-large;
+  background-color: #fff;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 20px;
+  color: #000;
+}
+
+.all_pzza_table {
+  background-color: #d15b17;
+  border: 5px solid;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: lato;
+  
 }

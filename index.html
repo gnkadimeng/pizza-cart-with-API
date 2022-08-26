@@ -20,34 +20,34 @@
 
 </head>
 
+<header>
+            
+    <h1>Perfect Pizza</h1>
+</header>
+
+<div x-text="message"></div>
+<div x-text="cartId"></div>
+
 <body>
     <div class="container" x-data="pizzaCartWithAPIWidget">
 
 
-        <header>
-            
-            <h1>Perfect Pizza</h1>
-        </header>
-        <div x-text="message"></div>
-        <div x-text="cartId"></div>
-
-
-        <div x-show="cart.total.toFixed(2)>0">
-            <table style="border: 1px #E5E8E8 solid;">
+        <div x-show="cart.total.toFixed(2)>0" class="all_pzza_table">
+            <table >
                 <tr>
                     <div class="cart-title">
-                        <th>Order Now</th>
+                        <th></th>
                         <th></th>
                         <th>
-                            <a style="color: #FFFFFF;" href="">Discart Card</a>
+                            <a style="color: #FFFFFF;" href="">Empty Cart</a>
                         </th>
                     </div>
 
                 </tr>
                 <tr>
-                    <th >Menu</th>
-                    <th style="padding-left: 3em;">Quantity</th>
-                    <th>Subtotal</th>
+                    <th ></th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <template x-for="pizza in cart.pizzas">
                     <tr>
@@ -66,7 +66,7 @@
             <div class="total-price">
                 <table>
                     <tr class="success">
-                        <td class="q">Checkout Total</td>
+                        <td class="q"></td>
                         <td>
                             <div class="q">
                                 R <span x-text="cart.total.toFixed(2)"></span>
@@ -78,7 +78,7 @@
                         <div x-show="payNow">
                             <td></td>
                             <td>
-                                <button x-show="!payNow" x-on:click="payNow=true" class="nice">Checkout</button>
+                                <button x-show="!payNow" x-on:click="payNow=true" class="nice">Proceed to pay</button>
                             </td>
                         </div>
 
@@ -91,7 +91,7 @@
                     </tr>
 
                     <tr class="success" x-show="payNow">
-                        <td class="q">Balance Due</td>
+                        <td class="q">Total plus Tip</td>
                         <td class="q">
                             R <span><input type="number" min="0" x-model="paymentAmount"></span>
                         </td>
@@ -99,21 +99,24 @@
                     <tr x-show="payNow">
                         <td></td>
                         <td>
-                            <button x-on:click="pay" class="nice">Order</button>
+                            <button x-on:click="pay" class="nice">Confirm</button>
                         </td>
                     </tr>
                 </table>
             </div>
         </div>
-        <h2 class="deal">Delivery & Collection Deals</h2>
+        <h2 class="deal">Delivery & Collection</h2>
+        Customer ID: <input type="text" x-model="username">
+
         <div>
-            Order Number: <input type="text" x-model="username">
+            <div></div>
         </div>
+        
 
-        <div class="q" x-text="pizzas.length"></div>
+      
 
-
-        <table>
+        <div >
+        <table class="all_pzza_table">
             <template x-for="pizza in pizzas">
 
                 <tr>
@@ -129,7 +132,7 @@
                         <div>
                             <img x-bind:src="createImg(pizza)" alt="">
                         </div>
-                        <button class="nice" @click="add(pizza)">buy</button>
+                        <button class="nice" @click="add(pizza)">Order</button>
                     </td>
                 </tr>
 
@@ -137,6 +140,7 @@
         </table>
 
     </div>
+</div>
 
     <div class="contacts box">
 

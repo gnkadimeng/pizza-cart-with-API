@@ -13,7 +13,11 @@ document.addEventListener('alpine:init', () => {
             message: '',
 
             init() {
-                axios.get('https://pizza-cart-api.herokuapp.com/api/pizzas')
+                axios.get('https://pizza-cart-api.herokuapp.com/api/pizzas', {
+                    params: {
+                        limit: 50
+                    }
+                })
                     .then((result) => {
                         const list = result.data.pizzas;
 
@@ -30,7 +34,7 @@ document.addEventListener('alpine:init', () => {
                     })
             },
             createCart() {
-               return axios.get('https://pizza-cart-api.herokuapp.com/api/pizza-cart/create?username=' + this.username)
+                return axios.get('https://pizza-cart-api.herokuapp.com/api/pizza-cart/create?username=' + this.username)
             },
             createImg(pizza) {
                 return `./images/${pizza.size}.png`;
@@ -58,6 +62,8 @@ document.addEventListener('alpine:init', () => {
                     .catch(err => alert(err));
             },
 
+
+
             remove(pizza) {
 
                 const params = {
@@ -73,6 +79,9 @@ document.addEventListener('alpine:init', () => {
                     .catch(err => alert(err));
 
             },
+
+
+            
             pay() {
                 const params = {
                     cart_code: this.cartId,
@@ -84,7 +93,7 @@ document.addEventListener('alpine:init', () => {
                             this.paymentMessege = 'No amount entered!'
                         }
                         else if (this.paymentAmount >= this.cart.total.toFixed(2)) {
-                            this.paymentMessege = 'payment sucessful!';
+                            this.paymentMessege = 'payment Accepted';
                             this.message = this.username + " paid!";
 
                             setTimeout(() => {
@@ -96,13 +105,13 @@ document.addEventListener('alpine:init', () => {
                             }, 3000);
 
 
-                        } else if (this.paymentAmount < this.cart.total){
-                            this.paymentMessege = 'Payment Declined !'
-                            
+                        } else if (this.paymentAmount < this.cart.total) {
+                            this.paymentMessege = 'Enter a sufficient amountt'
+
                         }
 
                     })
-                .catch(err => alert(err));
+                    .catch(err => alert(err));
             }
         }
     });
